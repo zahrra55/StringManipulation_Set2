@@ -47,12 +47,11 @@ namespace StringsTrainings
             return sentance.EndsWith(word) ? true : false;
         }
 
-
         //دالة لتحويل الحرف الاول من الكلمة الى حرف كبير
         public static String CapitalizeFirstLetter (String word)
         {
             //لمنع حدوث خطأ
-            if (word == null)
+            if (word == " ")
             {
                 return "You should type a word!";
             }
@@ -67,6 +66,7 @@ namespace StringsTrainings
             char[] word2 = new char[word.Length];
             for (int i = 0; i < word.Length; i++)
             {
+                //فحص اذا كان الحرف كبير يتم تحويله الى حرف صغير وبالعكس
                 word2[i] = char.IsUpper(word[i]) ? char.ToLower(word[i]) : char.ToUpper(word[i]);
             }
             Console.WriteLine( word2 );
@@ -103,6 +103,7 @@ namespace StringsTrainings
             int count = 0;
             for (int i = 0; i < sentance.Length; i++)
             {
+                //فحص كل حرف اذا كان يساوي فراغ يتم زيادة العداد
                 if (sentance[i] == ' ')
                     count++;
             }

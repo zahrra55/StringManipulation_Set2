@@ -7,6 +7,7 @@ namespace StringsTrainings
         static void Main(string[] args)
         {
             //calling WordApearingCounts method and print the count
+
             Console.WriteLine(Solutions.WordApearingCounts("apple"));
 
             //calling ConvertToUpperCase method and print the result
@@ -22,7 +23,7 @@ namespace StringsTrainings
             Console.WriteLine(Solutions.IsEndsWith("txt"));
 
             //calling CapitalizeFirstLetter method and print the result
-            Console.WriteLine(Solutions.CapitalizeFirstLetter("moosa"));
+            Console.WriteLine(Solutions.CapitalizeFirstLetter("  "));
 
             //calling ChangeLetterCase method
             Solutions.ChangeLetterCase("MoOsA");
