@@ -1,0 +1,8 @@
+C:\Users\x67\source\repos\noor CC#\bin\Debug\noor CC#.exe.config
+C:\Users\x67\source\repos\noor CC#\bin\Debug\noor CC#.exe
+C:\Users\x67\source\repos\noor CC#\bin\Debug\noor CC#.pdb
+C:\Users\x67\source\repos\noor CC#\obj\Debug\noor CC#.csproj.AssemblyReference.cache
+C:\Users\x67\source\repos\noor CC#\obj\Debug\noor CC#.csproj.CoreCompileInputs.cache
+C:\Users\x67\source\repos\noor CC#\obj\Debug\noor CC#.exe
+C:\Users\x67\source\repos\noor CC#\obj\Debug\noor CC#.pdb
+C:\Users\x67\source\repos\noor CC#\obj\Debug\noor CC#.exe.config
