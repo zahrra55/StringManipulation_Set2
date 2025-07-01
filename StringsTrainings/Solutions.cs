@@ -47,19 +47,66 @@ namespace StringsTrainings
             return sentance.EndsWith(word) ? true : false;
         }
 
-        // تمرين 6 و 7
 
         //دالة لتحويل الحرف الاول من الكلمة الى حرف كبير
         public static String CapitalizeFirstLetter (String word)
         {
-            char[] newWord;
-            foreach(char i in word)
+            //لمنع حدوث خطأ
+            if (word == null)
             {
-                if (i == 0)
-                    newWord[i] = word[i];
-
+                return "You should type a word!";
             }
+            else
+            return word.ToUpper()[0] + word.Substring(1);
 
+        }
+
+        //دالة لتبديل حالة كل حرف, الكبير الى صغير وبالعكس
+        public static void ChangeLetterCase (String word)
+        {
+            char[] word2 = new char[word.Length];
+            for (int i = 0; i < word.Length; i++)
+            {
+                word2[i] = char.IsUpper(word[i]) ? char.ToLower(word[i]) : char.ToUpper(word[i]);
+            }
+            Console.WriteLine( word2 );
+        }
+
+        //دالة لتقسيم السترنك الى كلمات منفصلة
+        public static void SplitString (String sentance)
+        {
+
+           String[] wordsAfterSplit = sentance.Split(' ');
+            
+            foreach (String str in wordsAfterSplit)
+            {
+                Console.WriteLine(str);
+            }
+        }  
+
+        //دالة لتحويل الكلمات الى سلسلة واحدة
+        public static void JoinString(String[] words)
+        {
+            Console.WriteLine(String.Join(" ", words));
+
+        }
+
+        //دالة لازالة الفراغات من بداية ونهاية الكلمة
+        public static String RemoveWhiteSpaces (String word)
+        {
+            return word.Trim();
+        }
+
+        //دالة لمعرفة عدد الفراغات الموجودة بالجملة
+        public static int NumberOfSpaces (String sentance)
+        {
+            int count = 0;
+            for (int i = 0; i < sentance.Length; i++)
+            {
+                if (sentance[i] == ' ')
+                    count++;
+            }
+            return count;
         }
     }
 
