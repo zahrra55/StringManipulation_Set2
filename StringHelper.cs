@@ -18,8 +18,29 @@ namespace strings
 
         public static string ToUpperCase(string input)
         {
-            if (input == null) throw new ArgumentNullException(nameof(input));
-            return input.ToUpperInvariant();
+            // Returns the input string in uppercase.
+            input = SafteyCheckUsingLoop(input);
+            try
+            {
+                input = input.ToUpperInvariant();
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
+            }
+            return input;
+        }
+
+        private static string SafteyCheckUsingLoop(string input)
+        {
+            while (input == string.Empty)
+            {
+                Console.Write("Re Input string: ");
+                input = Console.ReadLine();
+            }
+
+            return input;
         }
 
         public static string ToLowerCase(string input)
@@ -47,14 +68,10 @@ namespace strings
         {
             // Returns the length of the string.
             int count = 0;
-            while (input==string.Empty)
-            {
-                Console.Write("Re Input string to Calculate Length: ");
-                input = Console.ReadLine();
-            }
+            input = SafteyCheckUsingLoop(input);
             try
             {
-                count= input.Length;
+                count = input.Length;
             }
             catch (Exception)
             {

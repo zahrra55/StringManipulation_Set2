@@ -1,6 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using strings;
 
-Console.Write("Input string to Calculate Length: ");
+Console.Write("Input string to Process: ");
 string input = Console.ReadLine();
-StringHelper.Length(input);
+Console.WriteLine($"Uppercase: {StringHelper.ToUpperCase(input)}");
