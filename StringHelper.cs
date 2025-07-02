@@ -31,7 +31,6 @@ namespace strings
             }
             return input;
         }
-
         private static string SafteyCheckUsingLoop(string input)
         {
             while (input == string.Empty)
@@ -42,11 +41,20 @@ namespace strings
 
             return input;
         }
-
         public static string ToLowerCase(string input)
         {
-            if (input == null) throw new ArgumentNullException(nameof(input));
-            return input.ToLowerInvariant();
+            // Returns the input string in lowecase.
+            input = SafteyCheckUsingLoop(input);
+            try
+            {
+                input = input.ToLowerInvariant();
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
+            }
+            return input;
         }
         public static string Capitalize(string input)
         {

@@ -3,4 +3,4 @@ using strings;
 
 Console.Write("Input string to Process: ");
 string input = Console.ReadLine();
-Console.WriteLine($"Uppercase: {StringHelper.ToUpperCase(input)}");
+Console.WriteLine($"Lowercase: {StringHelper.ToLowerCase(input)}");
