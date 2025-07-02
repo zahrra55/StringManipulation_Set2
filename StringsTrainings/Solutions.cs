@@ -3,7 +3,7 @@
 
 namespace StringsTrainings
 {
-    class Solutions
+   public class Solutions
     {
         //دالة تحسب عدد تكرار كلمة معينة
         //نوزع الكلمات بمصفوفة وباستخدام اللوب نفحص الكلمات الي تشبه الكلمة المراد معرفة تكرارها
@@ -46,6 +46,35 @@ namespace StringsTrainings
             String sentance = "file.txt";
             return sentance.EndsWith(word) ? true : false;
         }
+
+        //دالة للتحقق مما إذا كانت السلسلة تحتوي فقط على أرقام
+        public static bool IsContainOnlyDigits(String word)
+        {
+            int count = 0;
+            for (int i = 0; i < word.Length; i++)
+            {
+                if (Char.IsDigit(word[i]))
+                    count++;
+            }
+            if (count == word.Length)
+                return true;
+            else return false;
+        }
+
+        //دالة للتحقق مما إذا كانت السلسلة تحتوي فقط على حروف
+        public static bool IsContainOnlyLetters(String word)
+        {
+            int count = 0;
+            for (int i = 0; i < word.Length; i++)
+            {
+                if (Char.IsLetter(word[i]))
+                    count++;
+            }
+            if (count == word.Length)
+                return true;
+            else return false;
+        }
+
 
         //دالة لتحويل الحرف الاول من الكلمة الى حرف كبير
         public static String CapitalizeFirstLetter (String word)
@@ -109,6 +138,33 @@ namespace StringsTrainings
             }
             return count;
         }
+
+        //دالة لطباعة اول خمسة حروف
+        public static String GetFirst5Char(String word) => word.Length <= 5 ? word : word.Substring(0, 5);
+        
+        //دالة لطباعة اول خمسة حروف
+        public static String GetLast3Char(String word) => word.Length <= 3 ? word : word.Substring(word.Length - 3);
+
+        //دالة لاتستبدالفاصلة بالفاصلة المنقوطة
+        public static String ReplaceCommasWithSemicolons(String word) => word.Replace(",", ";");
+
+        public static bool AreAnagrams(string word1, string word2)
+        {
+            if (word1.Length != word2.Length) return false;
+
+            char[] ConvertedWord1 = word1.ToLower().ToCharArray();
+            char[] ConvertedWord2 = word2.ToLower().ToCharArray();
+
+            Array.Sort(ConvertedWord1);
+            Array.Sort(ConvertedWord2);
+
+            for (int i = 0; i < ConvertedWord1.Length; i++)
+                if (ConvertedWord1[i] != ConvertedWord2[i]) return false;
+
+            return true;
+        }
+
+
     }
 
 }
