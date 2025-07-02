@@ -3,4 +3,7 @@ using strings;
 
 Console.Write("Input string to Process: ");
 string input = Console.ReadLine();
-Console.WriteLine($"Lowercase: {StringHelper.ToLowerCase(input)}");
+Console.Write("Input prefex to check: ");
+string prefex = Console.ReadLine();
+
+Console.WriteLine($"check prefex: {StringHelper.CheckPrefex(input,prefex)}");

@@ -8,14 +8,22 @@ namespace strings
 {
     public static class StringHelper
     {
-        public static string Reverse(string input)
+        public static bool CheckPrefex(string input,string prefex)
         {
-            if (input == null) throw new ArgumentNullException(nameof(input));
-            char[] charArray = input.ToCharArray();
-            Array.Reverse(charArray);
-            return new string(charArray);
-        }
+            input = SafteyCheckUsingLoop(input);
+            prefex = SafteyCheckUsingLoop(prefex);
+            try
+            {
+                return input.StartsWith(prefex);
+            }
+            catch (Exception ex)
+            {
 
+                Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
+                return false;
+            }
+
+        }
         public static string ToUpperCase(string input)
         {
             // Returns the input string in uppercase.
@@ -29,16 +37,6 @@ namespace strings
 
                 Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
             }
-            return input;
-        }
-        private static string SafteyCheckUsingLoop(string input)
-        {
-            while (input == string.Empty)
-            {
-                Console.Write("Re Input string: ");
-                input = Console.ReadLine();
-            }
-
             return input;
         }
         public static string ToLowerCase(string input)
@@ -55,22 +53,6 @@ namespace strings
                 Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
             }
             return input;
-        }
-        public static string Capitalize(string input)
-        {
-            if (input == null) throw new ArgumentNullException(nameof(input));
-            if (input.Length == 0) return input;
-            return char.ToUpper(input[0]) + input.Substring(1).ToLowerInvariant();
-        }
-        public static string TrimWhitespace(string input)
-        {
-            if (input == null) throw new ArgumentNullException(nameof(input));
-            return input.Trim();
-        }
-        public static string ReplaceWhitespaceWithUnderscore(string input)
-        {
-            if (input == null) throw new ArgumentNullException(nameof(input));
-            return input.Replace(" ", "_");
         }
         public static int Length(string input)
         {
@@ -89,5 +71,17 @@ namespace strings
             Console.WriteLine($"The length of the string is: {count}");
             return count;
         }
+        private static string SafteyCheckUsingLoop(string input)
+        {
+            while (input == string.Empty)
+            {
+                Console.Write("Re Input string: ");
+                input = Console.ReadLine();
+            }
+
+            return input;
+        }
+
+
     }
 }
