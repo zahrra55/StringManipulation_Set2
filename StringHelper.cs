@@ -8,6 +8,22 @@ namespace strings
 {
     public static class StringHelper
     {
+        public static bool OnlyDigit(string input)
+        {
+            // Checks if the input string contains only digits.
+            input = SafteyCheckUsingLoop(input);
+            try
+            {
+                return input.All(char.IsDigit);
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
+                return false;
+            }
+
+        }
         public static bool CheckStartPrefex(string input,string prefex)
         {
             // Checks if the input string starts with the specified prefix.

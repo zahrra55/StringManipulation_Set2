@@ -6,4 +6,4 @@ string input = Console.ReadLine();
 Console.Write("Input prefex to check: ");
 string prefex = Console.ReadLine();
 
-Console.WriteLine($"check prefex: {StringHelper.CheckEndPrefex(input,prefex)}");
+Console.WriteLine($"check IsDigit: {StringHelper.OnlyDigit(input)}");
