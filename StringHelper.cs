@@ -8,8 +8,9 @@ namespace strings
 {
     public static class StringHelper
     {
-        public static bool CheckPrefex(string input,string prefex)
+        public static bool CheckStartPrefex(string input,string prefex)
         {
+            // Checks if the input string starts with the specified prefix.
             input = SafteyCheckUsingLoop(input);
             prefex = SafteyCheckUsingLoop(prefex);
             try
@@ -24,6 +25,24 @@ namespace strings
             }
 
         }
+        public static bool CheckEndPrefex(string input, string prefex)
+        {
+            // Checks if the input string ends with the specified prefix.
+            input = SafteyCheckUsingLoop(input);
+            prefex = SafteyCheckUsingLoop(prefex);
+            try
+            {
+                return input.EndsWith(prefex);
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
+                return false;
+            }
+
+        }
+
         public static string ToUpperCase(string input)
         {
             // Returns the input string in uppercase.
