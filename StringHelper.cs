@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,23 @@ namespace strings
 {
     public static class StringHelper
     {
+        public static string CapitalizeFirstLetter(string input)
+        {
+            // Capitalizes the first letter of the string.
+            input = SafteyCheckUsingLoop(input);
+            try
+            {
+                TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
+                return textInfo.ToTitleCase(input.ToLowerInvariant());
+                //return char.ToUpper(input[0]) + input.Substring(1);
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
+                return string.Empty;
+            }
+        }
         public static bool OnlyDigit(string input)
         {
             // Checks if the input string contains only digits.
@@ -24,7 +42,23 @@ namespace strings
             }
 
         }
-        public static bool CheckStartPrefex(string input,string prefex)
+        public static bool OnlyLetters(string input)
+        {
+            // Checks if the input string contains only Letters.
+            input = SafteyCheckUsingLoop(input);
+            try
+            {
+                return input.All(char.IsLetter);
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
+                return false;
+            }
+
+        }
+        public static bool CheckStartPrefex(string input, string prefex)
         {
             // Checks if the input string starts with the specified prefix.
             input = SafteyCheckUsingLoop(input);
