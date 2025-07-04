@@ -32,6 +32,22 @@ namespace strings
             return NewString;
         }
 
+        public static string ReplaceCommasWithSemicolons(string str)
+        {
+            // Replaces all commas in the string with Semicolons.
+            str = SafteyCheckUsingLoop(str);
+            str = TrimEndAndStart(str); // Trim leading and trailing whitespace
+            try
+            {
+                return str.Replace(',', ';');
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
+                return string.Empty;
+            }
+        }
         public static string GetLast3Characters(string str)
         {
             // Returns the last 3 characters of the string.
@@ -40,7 +56,7 @@ namespace strings
             {
                 str = TrimEndAndStart(str); // Trim leading and trailing whitespace
                 //check the length of the string
-                if (str.Length < 3)
+                if (str.Length < 3) // we dont put equality in condition because its start from 0 
                 {
                     return str;
                 }
