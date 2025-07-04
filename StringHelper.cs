@@ -31,6 +31,24 @@ namespace strings
             }
             return NewString;
         }
+        public static string ConvertStringToAsciiArray(string str)
+        {
+            str = SafteyCheckUsingLoop(str);
+            int[] Ascii = new int[str.Length];
+            try
+            {
+                for (int i = 0; i < str.Length; i++)
+                {
+                    Ascii[i] = (int)str[i];
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return string.Join(",",Ascii);
+        }
         public static string MaskEmail(string email)
         {
             // Masks the email address by replacing the characters before the "@" with asterisks.
@@ -43,7 +61,7 @@ namespace strings
                 {
                     string UserEmail = email.Substring(0, 3); // Get the part before the "@"
                     string domain = email.Substring(atIndex); // Get the part after the "@"
-                    string maskedEmail = UserEmail+"****" + domain; // Mask the user part with asterisks
+                    string maskedEmail = UserEmail + "****" + domain; // Mask the user part with asterisks
                     return maskedEmail;
                 }
                 else
@@ -85,12 +103,12 @@ namespace strings
         {
             // Finds all digits in the string and returns them as a new string.
             str = SafteyCheckUsingLoop(str);
-            StringBuilder sb = new StringBuilder(); 
+            StringBuilder sb = new StringBuilder();
             try
             {
                 foreach (char c in str)
                 {
-                    if (char.IsDigit(c)) 
+                    if (char.IsDigit(c))
                     {
                         sb.Append(c);
                     }
