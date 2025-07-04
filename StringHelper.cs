@@ -20,15 +20,7 @@ namespace strings
             {
                 string[] _strings = str.Split(' ');
                NewString = string.Join(",", _strings);
-                //foreach (char c in str)
-                //{
-                //    NewString += c + ",";
-                //}
-                //if (NewString.Length > 0)
-                //{
-                //    NewString = NewString.Substring(0, NewString.Length - 1); // Remove the last comma
-                //}
-                
+                            
             }
             catch (Exception ex)
             {
@@ -38,9 +30,21 @@ namespace strings
             }
             return NewString;
         }
-        // Converts a string to an array of strings.
 
+        public static string TrimEndAndStart(string str) {
+            // Trims the leading and trailing whitespace from the string.
+            str = SafteyCheckUsingLoop(str);
+            try
+            {
+                return str.Trim();
+            }
+            catch (Exception ex)
+            {
 
+                Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
+                return string.Empty;
+            }
+        }
         public static string CapitalizeFirstLetter(string input)
         {
             // Capitalizes the first letter of the string.
