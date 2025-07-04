@@ -20,8 +20,8 @@ namespace strings
             try
             {
                 string[] _strings = str.Split(' ');
-               NewString = string.Join(",", _strings);
-                            
+                NewString = string.Join(",", _strings);
+
             }
             catch (Exception ex)
             {
@@ -32,6 +32,27 @@ namespace strings
             return NewString;
         }
 
+        public static string GetFirst5Characters(string str)
+        {
+            // Returns the first 5 characters of the string.
+            str = SafteyCheckUsingLoop(str);
+            try
+            {
+                str = TrimEndAndStart(str); // Trim leading and trailing whitespace
+                //check the length of the string
+                if (str.Length < 5)
+                {
+                    return str;
+                }
+                return str.Substring(0, 5);
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
+                return string.Empty;
+            }
+        }
         public static bool IsEmail(string str)
         {
             // Checks if the input string is a valid email address.
@@ -71,7 +92,8 @@ namespace strings
             }
             return count;
         }
-        public static string TrimEndAndStart(string str) {
+        public static string TrimEndAndStart(string str)
+        {
             // Trims the leading and trailing whitespace from the string.
             str = SafteyCheckUsingLoop(str);
             try
