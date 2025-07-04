@@ -31,6 +31,31 @@ namespace strings
             }
             return NewString;
         }
+
+        public static string removeDuplicate(string str)
+        {
+            str = SafteyCheckUsingLoop(str);
+            str = TrimEndAndStart(str);
+            string NewString = string.Empty;
+            try
+            {
+                string[] _strings = str.Split(' ');
+                foreach (var item in _strings)
+                {
+                    if (!NewString.Contains(item))
+                    {
+                        NewString += item + " ";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
+                return string.Empty;
+            }
+            return NewString;
+        }
         public static string ConvertStringToAsciiArray(string str)
         {
             str = SafteyCheckUsingLoop(str);
@@ -47,7 +72,7 @@ namespace strings
 
                 throw;
             }
-            return string.Join(",",Ascii);
+            return string.Join(",", Ascii);
         }
         public static string MaskEmail(string email)
         {
