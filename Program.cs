@@ -3,7 +3,7 @@ using strings;
 
 Console.Write("Input string to Process: ");
 string input = Console.ReadLine();
-Console.Write("Input prefex to check: ");
-string prefex = Console.ReadLine();
+//Console.Write("Input prefex to check: ");
+//string prefex = Console.ReadLine();
 
-Console.WriteLine($"check IsDigit: {StringHelper.CapitalizeFirstLetter(input)}");
+Console.WriteLine($"check IsDigit: {StringHelper.ArrayOfString(input)}");

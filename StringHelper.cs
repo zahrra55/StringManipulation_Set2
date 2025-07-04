@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,37 @@ namespace strings
 {
     public static class StringHelper
     {
+        public static string ArrayOfString(string str)
+        {
+            // Converts a string to an array of strings, where each character is separated by a comma.
+            str = SafteyCheckUsingLoop(str);
+            string NewString = string.Empty;
+
+            try
+            {
+                string[] _strings = str.Split(' ');
+               NewString = string.Join(",", _strings);
+                //foreach (char c in str)
+                //{
+                //    NewString += c + ",";
+                //}
+                //if (NewString.Length > 0)
+                //{
+                //    NewString = NewString.Substring(0, NewString.Length - 1); // Remove the last comma
+                //}
+                
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
+                return string.Empty;
+            }
+            return NewString;
+        }
+        // Converts a string to an array of strings.
+
+
         public static string CapitalizeFirstLetter(string input)
         {
             // Capitalizes the first letter of the string.
