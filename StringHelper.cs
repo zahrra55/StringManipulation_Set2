@@ -31,6 +31,29 @@ namespace strings
             return NewString;
         }
 
+        public static int CountWhiteSpaces(string str)
+        {
+            //Return No. of Spaces into strings
+            int count = 0;
+            str = SafteyCheckUsingLoop(str);
+            try
+            {
+                foreach (var item in str)
+                {
+                    if (char.IsWhiteSpace(item))
+                    {
+                        count++;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
+                return 0;
+            }
+            return count;
+        }
         public static string TrimEndAndStart(string str) {
             // Trims the leading and trailing whitespace from the string.
             str = SafteyCheckUsingLoop(str);
