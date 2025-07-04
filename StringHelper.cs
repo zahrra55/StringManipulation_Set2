@@ -32,6 +32,51 @@ namespace strings
             return NewString;
         }
 
+        public static string FindAllDigits(string str)
+        {
+            // Finds all digits in the string and returns them as a new string.
+            str = SafteyCheckUsingLoop(str);
+            StringBuilder sb = new StringBuilder(); 
+            try
+            {
+                foreach (char c in str)
+                {
+                    if (char.IsDigit(c)) 
+                    {
+                        sb.Append(c);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
+                return string.Empty;
+            }
+            return sb.ToString();
+        }
+        public static bool CheckIfTwoStringsAreAnagrams(string str1, string str2)
+        {
+            // Checks if two strings are anagrams of each other, contains same chars instead of locations
+            str1 = SafteyCheckUsingLoop(str1);
+            str2 = SafteyCheckUsingLoop(str2);
+            try
+            {
+                if (str1.Length != str2.Length)
+                    return false; // If lengths are not equal, they cannot be anagrams
+                char[] charArray1 = str1.ToLower().ToCharArray(); // Convert to lowercase and to char array
+                char[] charArray2 = str2.ToLower().ToCharArray(); // Convert to lowercase and to char array
+                Array.Sort(charArray1); // Sort the char arrays here we sort according to char value
+                Array.Sort(charArray2);
+                return new string(charArray1) == new string(charArray2); //
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
+                return false;
+            }
+        }
         public static string ReplaceCommasWithSemicolons(string str)
         {
             // Replaces all commas in the string with Semicolons.
