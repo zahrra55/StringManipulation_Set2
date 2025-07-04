@@ -31,7 +31,21 @@ namespace strings
             }
             return NewString;
         }
+        public static string ReplaceNewLineWithSpace(string str)
+        {
+            // Replaces all new line characters in the string with spaces.
+            str = SafteyCheckUsingLoop(str);
+            try
+            {
+                return str.Replace("\n", " "); // Replace new line characters with one space
+            }
+            catch (Exception ex)
+            {
 
+                Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
+                return string.Empty;
+            }
+        }
         public static string ExtractExtension(string str)
         {
             str = SafteyCheckUsingLoop(str);
@@ -48,10 +62,11 @@ namespace strings
                     extension = "No extension found"; // If no dot is found or it's at the end of the string
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
+                return string.Empty;
             }
             return extension;
 
