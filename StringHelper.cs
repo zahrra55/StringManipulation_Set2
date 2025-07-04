@@ -4,6 +4,7 @@ using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace strings
@@ -31,6 +32,22 @@ namespace strings
             return NewString;
         }
 
+        public static bool IsEmail(string str)
+        {
+            // Checks if the input string is a valid email address.
+            str = SafteyCheckUsingLoop(str);
+            try
+            {
+                string trimmedEmail = str.Trim();
+                return Regex.IsMatch(trimmedEmail, @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
+                return false;
+            }
+        }
         public static int CountWhiteSpaces(string str)
         {
             //Return No. of Spaces into strings
