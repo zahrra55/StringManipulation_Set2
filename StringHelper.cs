@@ -31,7 +31,56 @@ namespace strings
             }
             return NewString;
         }
+        public static string MaskEmail(string email)
+        {
+            // Masks the email address by replacing the characters before the "@" with asterisks.
+            email = SafteyCheckUsingLoop(email);
+            try
+            {
+                email = TrimEndAndStart(email); // Trim leading and trailing whitespace
+                int atIndex = email.IndexOf('@');
+                if (IsEmail(email))
+                {
+                    string UserEmail = email.Substring(0, 3); // Get the part before the "@"
+                    string domain = email.Substring(atIndex); // Get the part after the "@"
+                    string maskedEmail = UserEmail+"****" + domain; // Mask the user part with asterisks
+                    return maskedEmail;
+                }
+                else
+                {
+                    return "not valid email"; // Return the original email if "@" is not found
+                }
+            }
+            catch (Exception ex)
+            {
 
+                Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
+                return string.Empty;
+            }
+        }
+        public static string FindAllLetters(string str)
+        {
+            // Finds all Letter in the string and returns them as a new string.
+            str = SafteyCheckUsingLoop(str);
+            StringBuilder sb = new StringBuilder();
+            try
+            {
+                foreach (char c in str)
+                {
+                    if (char.IsLetter(c))
+                    {
+                        sb.Append(c);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
+                return string.Empty;
+            }
+            return sb.ToString();
+        }
         public static string FindAllDigits(string str)
         {
             // Finds all digits in the string and returns them as a new string.
