@@ -32,6 +32,30 @@ namespace strings
             return NewString;
         }
 
+        public static string ExtractExtension(string str)
+        {
+            str = SafteyCheckUsingLoop(str);
+            string extension = string.Empty;
+            try
+            {
+               int LocationOfDot = str.LastIndexOf('.');
+                if (LocationOfDot != -1 && LocationOfDot < str.Length - 1)
+                {
+                    extension = str.Substring(LocationOfDot + 1); // Extract the substring after the last dot
+                }
+                else
+                {
+                    extension = "No extension found"; // If no dot is found or it's at the end of the string
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return extension;
+
+        }
         public static string removeDuplicate(string str)
         {
             str = SafteyCheckUsingLoop(str);
