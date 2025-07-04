@@ -31,6 +31,23 @@ namespace strings
             }
             return NewString;
         }
+        public static string ConvertDateFormat(string date)
+        {
+            // Converts a date string to a formatted string.
+            date = SafteyCheckUsingLoop(date);
+            try
+            {
+                date = TrimEndAndStart(date); // Trim leading and trailing whitespace
+                return date = date.Replace("-", "/"); // Replace slashes with dashes
+
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Invalid date format. Please enter a valid date.");
+                return string.Empty;
+            }
+           
+        }
         public static string ReplaceNewLineWithSpace(string str)
         {
             // Replaces all new line characters in the string with spaces.
@@ -52,7 +69,7 @@ namespace strings
             string extension = string.Empty;
             try
             {
-               int LocationOfDot = str.LastIndexOf('.');
+                int LocationOfDot = str.LastIndexOf('.');
                 if (LocationOfDot != -1 && LocationOfDot < str.Length - 1)
                 {
                     extension = str.Substring(LocationOfDot + 1); // Extract the substring after the last dot

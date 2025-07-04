@@ -6,4 +6,4 @@ string input = Console.ReadLine();
 //Console.Write("Input prefex to check: ");
 //string prefex = Console.ReadLine();
 
-Console.WriteLine($"check IsDigit: {StringHelper.ReplaceNewLineWithSpace(input)}");
+Console.WriteLine($"check IsDigit: {StringHelper.ConvertDateFormat(input)}");
