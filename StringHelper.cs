@@ -32,6 +32,27 @@ namespace strings
             return NewString;
         }
 
+        public static string GetLast3Characters(string str)
+        {
+            // Returns the last 3 characters of the string.
+            str = SafteyCheckUsingLoop(str);
+            try
+            {
+                str = TrimEndAndStart(str); // Trim leading and trailing whitespace
+                //check the length of the string
+                if (str.Length < 3)
+                {
+                    return str;
+                }
+                return str.Substring(str.Length - 3);
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
+                return string.Empty;
+            }
+        }
         public static string GetFirst5Characters(string str)
         {
             // Returns the first 5 characters of the string.
