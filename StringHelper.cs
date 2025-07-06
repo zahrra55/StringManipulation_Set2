@@ -31,6 +31,20 @@ namespace strings
             }
             return NewString;
         }
+        public static bool CheckStringIfOnlyWhiteSpace(string str)
+        {
+            str = SafteyCheckUsingLoop(str);
+            try
+            {
+                return str.All(char.IsWhiteSpace); // Check if the string contains only whitespace characters;
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
+                return false;
+            }
+        }
         public static string RemoveVowels(string str)
         {
             // Removes all vowels from the string.
@@ -39,7 +53,7 @@ namespace strings
             try
             {
                 str = TrimEndAndStart(str); // Trim leading and trailing whitespace
-                str=FindAllLetters(str); // Extract only letters from the string
+                str = FindAllLetters(str); // Extract only letters from the string
                 foreach (char c in str)
                 {
                     if (!"aeiouAEIOU".Contains(c)) // Check if the character is not a vowel
@@ -76,7 +90,7 @@ namespace strings
                         count++; // Increment the count for each capitalized word
                     }
                 }
-                
+
             }
             catch (Exception ex)
             {
