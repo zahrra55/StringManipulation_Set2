@@ -6,4 +6,4 @@ string input = Console.ReadLine();
 //Console.Write("Input prefex to check: ");
 //string prefex = Console.ReadLine();
 
-Console.WriteLine(StringHelper.TrimStringToMaximumOf10Chars(input));
+Console.WriteLine(StringHelper.ExtractPhoneNumber(input));

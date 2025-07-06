@@ -31,6 +31,30 @@ namespace strings
             }
             return NewString;
         }
+        public static string ExtractPhoneNumber(string str)
+        {
+            // Extracts phone numbers from the string.
+            str = SafteyCheckUsingLoop(str);
+            string NewString = string.Empty;
+            try
+            {
+                str = TrimEndAndStart(str); // Trim leading and trailing whitespace
+                foreach (char c in str)
+                {
+                    if (char.IsDigit(c) || c == '+')
+                    {
+                        NewString += c;
+                    }
+                }
+                return NewString;
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
+                return string.Empty;
+            }
+        }
         public static string TrimStringToMaximumOf10Chars(string str)
         {
             // Trims the string to a maximum of 10 characters.
@@ -51,7 +75,7 @@ namespace strings
                         {
                             NewString += str.Substring(i, 10) + ","; // Take 10 characters at a time and add a comma
                         }
-                        else 
+                        else
                         {
                             NewString += str.Substring(i); // Take the remaining characters if less than 10
                         }
@@ -474,14 +498,14 @@ namespace strings
         {
             // Finds all digits in the string and returns them as a new string.
             str = SafteyCheckUsingLoop(str);
-            StringBuilder sb = new StringBuilder();
+            string NewString = string.Empty;
             try
             {
                 foreach (char c in str)
                 {
                     if (char.IsDigit(c))
                     {
-                        sb.Append(c);
+                        NewString += c;
                     }
                 }
             }
@@ -491,7 +515,7 @@ namespace strings
                 Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
                 return string.Empty;
             }
-            return sb.ToString();
+            return NewString;
         }
         public static bool CheckIfTwoStringsAreAnagrams(string str1, string str2)
         {
