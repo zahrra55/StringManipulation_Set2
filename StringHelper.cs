@@ -31,6 +31,22 @@ namespace strings
             }
             return NewString;
         }
+       
+        public static string ConvertDecimalToBinary(string decimalString)
+        {
+            // Converts a decimal string to its binary equivalent.
+            decimalString = SafteyCheckUsingLoop(decimalString);
+            try
+            {
+                int number = Convert.ToInt32(decimalString); // Convert string to integer
+                return Convert.ToString(number, 2); // Convert integer to binary string
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Invalid decimal format. Please enter a valid decimal number.");
+                return string.Empty;
+            }
+        }
         public static string ConvertBinaryToDecimal(string binaryString)
         {
             // Converts a binary string to its decimal equivalent.
