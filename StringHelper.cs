@@ -31,6 +31,32 @@ namespace strings
             }
             return NewString;
         }
+        public static string CamalCaseToSnakeCase(string str)
+        {
+            // Converts a CamelCase string to snake_case.
+            str = SafteyCheckUsingLoop(str);
+            string snake_string = string.Empty;
+            try
+            {
+                str = TrimEndAndStart(str); // Trim leading and trailing whitespace
+                str = FindAllLetters(str); // Extract only letters from the string
+                for (int i = 0; i < str.Length; i++)
+                {
+                    if (char.IsUpper(str[i]) && i > 0) // Check if the character is uppercase and not the first character
+                    {
+                        snake_string += "_"; // Add an underscore before uppercase letters
+                    }
+                    snake_string += char.ToLower(str[i]); // Convert the character to lowercase and add it to the result
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
+                return string.Empty;
+            }
+            return snake_string; // Return the resulting snake_case string
+        }
         public static string SnakeCaseToCamalCase(string str)
         {
             str = SafteyCheckUsingLoop(str);
@@ -40,7 +66,7 @@ namespace strings
                 str = TrimEndAndStart(str);
                 if (str.IndexOf('_') == 0)
                 {
-                    str= str.Substring(1); // Remove leading underscore if present
+                    str = str.Substring(1); // Remove leading underscore if present
                 }
                 foreach (var item in str)
                 {
@@ -237,14 +263,14 @@ namespace strings
         {
             // Finds all Letter in the string and returns them as a new string.
             str = SafteyCheckUsingLoop(str);
-            StringBuilder sb = new StringBuilder();
+            string NewString = string.Empty;
             try
             {
                 foreach (char c in str)
                 {
                     if (char.IsLetter(c))
                     {
-                        sb.Append(c);
+                        NewString = NewString + c;
                     }
                 }
             }
@@ -254,7 +280,7 @@ namespace strings
                 Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
                 return string.Empty;
             }
-            return sb.ToString();
+            return NewString;
         }
         public static string FindAllDigits(string str)
         {
