@@ -31,7 +31,41 @@ namespace strings
             }
             return NewString;
         }
-       
+        public static string TrimStringToMaximumOf10Chars(string str)
+        {
+            // Trims the string to a maximum of 10 characters.
+            str = SafteyCheckUsingLoop(str);
+            string NewString = string.Empty;
+            try
+            {
+                str = str.Replace(' ', '_'); // Replace spaces with underscores
+                if (str.Length < 10)
+                {
+                    return str; // If the string is less than 10 characters, return it as is
+                }
+                else
+                {
+                    for (int i = 0; i < str.Length; i += 10)
+                    {
+                        if (i + 10 <= str.Length)
+                        {
+                            NewString += str.Substring(i, 10) + ","; // Take 10 characters at a time and add a comma
+                        }
+                        else 
+                        {
+                            NewString += str.Substring(i); // Take the remaining characters if less than 10
+                        }
+                    }
+                    return NewString.Trim(); // Return the trimmed string
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
+                return string.Empty;
+            }
+        }
         public static string AddSpaceAfterEveryComma(string str)
         {
             // Adds a space after every comma in the string.
