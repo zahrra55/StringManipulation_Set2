@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace strings
 {
@@ -37,8 +38,27 @@ namespace strings
             str = str.Replace("+","00");
             return str;
         }
-       
-       
+        
+        public static string RedactNameInDocument(string str)
+        {
+            // Redacts names in the document by replacing them with "[REDACTED]". Names are assumed to start with a capital letter followed by lowercase letters.
+            str = SafteyCheckUsingLoop(str);
+            try
+            {
+                str= TrimEndAndStart(str); // Trim leading and trailing whitespace
+                string regexPattern = @"\b[A-Z][a-z]+\b";
+                string redacted = Regex.Replace(str, regexPattern, "[REDACTED]");
+                return redacted;
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
+                return string.Empty;
+            }
+        }
+
+
         public static string ExtractPhoneNumber(string str)
         {
             // Extracts phone numbers from the string.
