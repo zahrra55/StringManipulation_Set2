@@ -31,6 +31,36 @@ namespace strings
             }
             return NewString;
         }
+        public static string ConvertBinaryToDecimal(string binaryString)
+        {
+            // Converts a binary string to its decimal equivalent.
+            binaryString = SafteyCheckUsingLoop(binaryString);
+            try
+            {
+                return Convert.ToInt32(binaryString, 2).ToString(); // Convert binary to decimal
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Invalid binary format. Please enter a valid binary string.");
+                return string.Empty;
+            }
+        }
+        public static string ReplaceEmojisWithAsterisks(string str)
+        {
+            // Replaces all emojis in the string with asterisks.
+            str = SafteyCheckUsingLoop(str);
+            try
+            {
+                str = TrimEndAndStart(str); // Trim leading and trailing whitespace
+                return Regex.Replace(str, @"[\p{So}]", "[Emoji]"); // Replace emojis with asterisks
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
+                return string.Empty;
+            }
+        }
         public static bool CheckStringIfOnlyWhiteSpace(string str)
         {
             str = SafteyCheckUsingLoop(str);
