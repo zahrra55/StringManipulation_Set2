@@ -31,6 +31,82 @@ namespace strings
             }
             return NewString;
         }
+        public static string SnakeCaseToCamalCase(string str)
+        {
+            str = SafteyCheckUsingLoop(str);
+            string[] SplitStrings;
+            try
+            {
+                str = TrimEndAndStart(str);
+                if (str.IndexOf('_') == 0)
+                {
+                    str= str.Substring(1); // Remove leading underscore if present
+                }
+                foreach (var item in str)
+                {
+                    str = str.Replace('.', '_');
+                    str = str.Replace(' ', '_'); // Replace spaces and dots with underscores
+                }
+                SplitStrings = str.Split('_'); // Split the string by underscores
+                for (int i = 1; i < SplitStrings.Length; i++)
+                {
+                    if (SplitStrings[i].Length > 0) //check if the string is not empty and length is greater than 0
+                    {
+                        SplitStrings[i] = char.ToUpper(SplitStrings[i][0]) + SplitStrings[i].Substring(1).ToLower(); // Capitalize Only first letter
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
+                return string.Empty;
+
+            }
+            return string.Join("", SplitStrings); // Join the strings without any separator
+
+
+        }
+        public static int CountOfChar(string str, char c)
+        {
+            // Counts the number of characters in the string.
+            str = SafteyCheckUsingLoop(str);
+            int count = 0;
+            try
+            {
+                for (int i = 0; i < str.Length; i++) // Loop through each character in the string
+                {
+                    if (str[i] == c)
+                    {
+                        count++;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
+                return 0;
+            }
+            return count;
+        }
+        public static bool IsContainSpecialChar(string str)
+        {
+            // Checks if the string contains any special characters.
+            str = SafteyCheckUsingLoop(str);
+            try
+            {
+                str = TrimEndAndStart(str); // Trim leading and trailing whitespace
+
+                return str.Any(c => !char.IsLetterOrDigit(c) && !char.IsWhiteSpace(c)); // Check for any character that is not a letter, digit, or whitespace
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
+                return false;
+            }
+        }
         public static string ConvertDateFormat(string date)
         {
             // Converts a date string to a formatted string.
@@ -46,7 +122,7 @@ namespace strings
                 Console.WriteLine("Invalid date format. Please enter a valid date.");
                 return string.Empty;
             }
-           
+
         }
         public static string ReplaceNewLineWithSpace(string str)
         {
@@ -54,7 +130,7 @@ namespace strings
             str = SafteyCheckUsingLoop(str);
             try
             {
-                return str.Replace("\n", " "); // Replace new line characters with one space
+                return str.Replace('\n', ' '); // Replace new line characters with one space
             }
             catch (Exception ex)
             {
