@@ -31,6 +31,14 @@ namespace strings
             }
             return NewString;
         }
+        public static string FormatNumberAsInternational(String str)
+        {
+            str = ExtractPhoneNumber(str);
+            str = str.Replace("+","00");
+            return str;
+        }
+       
+       
         public static string ExtractPhoneNumber(string str)
         {
             // Extracts phone numbers from the string.
