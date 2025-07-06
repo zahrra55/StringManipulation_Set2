@@ -31,6 +31,29 @@ namespace strings
             }
             return NewString;
         }
+        public static string ReplaceNumricsWithAsterisks(string str)
+        {
+            // Replaces all numeric characters in the string with Hashtag.
+            str = SafteyCheckUsingLoop(str);
+            try
+            {
+                str = TrimEndAndStart(str); // Trim leading and trailing whitespace
+                foreach (char c in str)
+                {
+                    if (char.IsDigit(c)) // Check if the character is a digit
+                    {
+                        str = str.Replace(c, '#'); // Replace digit with an Hashtag
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
+                return string.Empty;
+            }
+            return str; // Return the modified string
+        }
         public static string CamalCaseToSnakeCase(string str)
         {
             // Converts a CamelCase string to snake_case.
