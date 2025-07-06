@@ -32,6 +32,22 @@ namespace strings
             return NewString;
         }
        
+        public static string AddSpaceAfterEveryComma(string str)
+        {
+            // Adds a space after every comma in the string.
+            str = SafteyCheckUsingLoop(str);
+            try
+            {
+                str = TrimEndAndStart(str); // Trim leading and trailing whitespace
+                return str.Replace(",", ", "); // Replace commas with commas followed by a space
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
+                return string.Empty;
+            }
+        }
         public static string ConvertDecimalToBinary(string decimalString)
         {
             // Converts a decimal string to its binary equivalent.
