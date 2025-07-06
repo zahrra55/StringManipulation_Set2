@@ -31,6 +31,61 @@ namespace strings
             }
             return NewString;
         }
+        public static string RemoveVowels(string str)
+        {
+            // Removes all vowels from the string.
+            str = SafteyCheckUsingLoop(str);
+            string NewString = string.Empty;
+            try
+            {
+                str = TrimEndAndStart(str); // Trim leading and trailing whitespace
+                str=FindAllLetters(str); // Extract only letters from the string
+                foreach (char c in str)
+                {
+                    if (!"aeiouAEIOU".Contains(c)) // Check if the character is not a vowel
+                    {
+                        NewString += c; // Append non-vowel characters to the new string
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
+                return string.Empty;
+            }
+            return NewString; // Return the modified string without vowels
+        }
+        public static int CountOfCapitalizedWords(string str)
+        {
+            // Counts the number of capitalized words in the string.
+            str = SafteyCheckUsingLoop(str);
+            int count = 0;
+            try
+            {
+                str = TrimEndAndStart(str); // Trim leading and trailing whitespace
+                string[] ArrayOfStrings = str.Split(' '); // Split the string into words
+                for (int i = 0; i < ArrayOfStrings.Length; i++)
+                {
+                    ArrayOfStrings[i] = FindAllLetters(ArrayOfStrings[i]); // Extract only letters from each word
+                }
+                foreach (var item in ArrayOfStrings)
+                {
+                    if (item.Length > 0 && char.IsUpper(item[0])) // Check if the first character of the word is uppercase
+                    {
+                        count++; // Increment the count for each capitalized word
+                    }
+                }
+                
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"An error occurred while process the input string({ex.Message}). Please try again.");
+                return 0;
+            }
+            return count; // Return the count of capitalized words
+        }
         public static string ReplaceNumricsWithAsterisks(string str)
         {
             // Replaces all numeric characters in the string with Hashtag.
