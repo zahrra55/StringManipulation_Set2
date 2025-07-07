@@ -513,6 +513,27 @@ English: Convert camelCase to snake_case.
       }
       return snakecase.ToString();
   }
+/*
+Exercise 31  :
+English: Replace all numeric values in a string with #.
+*/
+ static string ReplaceNumeric(string str)
+  {
+     StringBuilder nstr= new StringBuilder(str);
+if(!string.IsNullOrEmpty(str)){ 
+      for(int i=0;i<str.Length;i++)
+      {
+          if(char.IsDigit(str[i]))
+          {
+			  nstr[i] ='#' ;
+          }
+      }
+      return nstr.ToString();
+	 }
+		else{
+			return "Threr is no string";
+		}
+  } 
 static void Main(string[] args)
     {  
 string str1="lisien";
@@ -547,5 +568,6 @@ Console.WriteLine(ConvertDate("2022-03-02"));// Exercise 26
  Console.WriteLine(CheckSpecificCharacter("bana$na")); 
 Console.WriteLine(ConvertSnake_case("My_name"));
 Console.WriteLine(ConvertcamelCase("Myname",2));
+Console.WriteLine(ReplaceNumeric("My2name4"));
     }
 }
