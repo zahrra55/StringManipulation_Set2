@@ -166,6 +166,8 @@ namespace StringsTrainings
             //calling RemoveNonEnglishCharacters method and print the result
             Console.WriteLine(Solutions.RemoveNonEnglishCharacters("مرحباA"));
 
+            Console.WriteLine(Solutions.ExtractVideoID("https://youtu.be/abc123"));
+
             //calling SumExtractNumbers method and print the result
             Console.WriteLine(Solutions.SumExtractNumbers("6abc123"));
 

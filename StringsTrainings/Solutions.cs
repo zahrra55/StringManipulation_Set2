@@ -1325,6 +1325,26 @@ namespace StringsTrainings
 
         }
 
+        //دالة لاستخراج الايدي من فيديو اليوتيوب
+        public static String ExtractVideoID (String URL)
+        {
+            if (IsOnlyWhiteSpaces(URL))
+                Console.WriteLine("You must type some word");
+            try
+            {
+                String resul = "";
+                return URL.Substring(URL.LastIndexOf("/") + 1);
+            }
+            catch (ArgumentNullException ex)
+            {
+                return $"Error: {ex.Message}";
+            }
+            catch (Exception ex)
+            {
+                return $"Unexpected error: {ex.Message}";
+            }
+        }
+
         //دالة لجمع الارقام المستخرجة من نص
         public static int SumExtractNumbers(String word)
         {
