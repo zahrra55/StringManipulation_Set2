@@ -598,44 +598,44 @@ English: Replace emojis with [EMOJI] tag.
 	return nstr;
   }
 
-static void Main(string[] args)
-{  
-string str1="lisien";
-string str2="sileni";
-Console.WriteLine (Anagrams(str1,str2));//Exercise 18
-Console.Write("Enter a string: ");
-string input = Console.ReadLine();
-Console.Write(FirstCharacters(input));//Exercise 15
-Console.Write(Last3Characters(input));//Exercise 16
-string[] words={"rabab","zahraa"};
-Console.Write(WordsToString(words));
- Console.Write(ASCII("abc"));//Exercise 22
-Console.WriteLine(CountsHowManyWord("Hello World Hello","hello"));
-Console.WriteLine(ReverseString("Hello World Hello"));
-Console.WriteLine(ReplaceSpaces("Hello World Hello"));
-Console.WriteLine(NumberOfVowels("education"));
-Console.WriteLine(CheckDigits("12345"));
-Console.WriteLine(FindDigits("12rab345"));//Exercise 19
-Console.WriteLine(FindLetters("12rab345"));//Exercise 20
-Console.WriteLine(CapitalizeFirstCharacter("Hello World Hello"));
-Console.WriteLine(SwapCase("eduCation"));
-Console.WriteLine(SplitString("Hello World Hello"));
-Console.WriteLine(RemoveLeading(" eduCation "));
-Console.WriteLine(Count("Hello World Hello"));
-Console.Write(CheckEmail("rabab@gmail.com"));
-Console.Write(MaskEmail("rabab@gmail.com"));
-Console.WriteLine(ReplaceCommas("Hello,World,Hello"));//Exercise 17
-Console.WriteLine(Extension("rabab.word"));//Exercise 24
-Console.WriteLine(ReplaceNewlines("hello\nworld")); 
-Console.WriteLine(ConvertDate("2022-03-02"));// Exercise 26
- Console.WriteLine(CounterSpecificCharacter("banana",'a')); 
- Console.WriteLine(CheckSpecificCharacter("bana$na")); 
-Console.WriteLine(ConvertSnake_case("My_name"));
-Console.WriteLine(ConvertcamelCase("Myname",2));
-Console.WriteLine(ReplaceNumeric("My2name4"));
-Console.WriteLine(Countcapitalizedwords("Hello World"));
-Console.WriteLine(RemoveOfVowels("education"));
-Console.WriteLine(CheckOnlyWhitespace("  "));
-Console.WriteLine(ReplaceEmojis("Hello 😊"));
-    }
+// static void Main(string[] args)
+// {  
+// string str1="lisien";
+// string str2="sileni";
+// Console.WriteLine (Anagrams(str1,str2));//Exercise 18
+// Console.Write("Enter a string: ");
+// string input = Console.ReadLine();
+// Console.Write(FirstCharacters(input));//Exercise 15
+// Console.Write(Last3Characters(input));//Exercise 16
+// string[] words={"rabab","zahraa"};
+// Console.Write(WordsToString(words));
+//  Console.Write(ASCII("abc"));//Exercise 22
+// Console.WriteLine(CountsHowManyWord("Hello World Hello","hello"));
+// Console.WriteLine(ReverseString("Hello World Hello"));
+// Console.WriteLine(ReplaceSpaces("Hello World Hello"));
+// Console.WriteLine(NumberOfVowels("education"));
+// Console.WriteLine(CheckDigits("12345"));
+// Console.WriteLine(FindDigits("12rab345"));//Exercise 19
+// Console.WriteLine(FindLetters("12rab345"));//Exercise 20
+// Console.WriteLine(CapitalizeFirstCharacter("Hello World Hello"));
+// Console.WriteLine(SwapCase("eduCation"));
+// Console.WriteLine(SplitString("Hello World Hello"));
+// Console.WriteLine(RemoveLeading(" eduCation "));
+// Console.WriteLine(Count("Hello World Hello"));
+// Console.Write(CheckEmail("rabab@gmail.com"));
+// Console.Write(MaskEmail("rabab@gmail.com"));
+// Console.WriteLine(ReplaceCommas("Hello,World,Hello"));//Exercise 17
+// Console.WriteLine(Extension("rabab.word"));//Exercise 24
+// Console.WriteLine(ReplaceNewlines("hello\nworld")); 
+// Console.WriteLine(ConvertDate("2022-03-02"));// Exercise 26
+//  Console.WriteLine(CounterSpecificCharacter("banana",'a')); 
+//  Console.WriteLine(CheckSpecificCharacter("bana$na")); 
+// Console.WriteLine(ConvertSnake_case("My_name"));
+// Console.WriteLine(ConvertcamelCase("Myname",2));
+// Console.WriteLine(ReplaceNumeric("My2name4"));
+// Console.WriteLine(Countcapitalizedwords("Hello World"));
+// Console.WriteLine(RemoveOfVowels("education"));
+// Console.WriteLine(CheckOnlyWhitespace("  "));
+// Console.WriteLine(ReplaceEmojis("Hello 😊"));
+//     }
 }
